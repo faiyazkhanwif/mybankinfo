@@ -7,7 +7,7 @@ HireDev
 Functionalities
 ***************
 
-- Developer hiring platform.
+- Bank and ATM directory.
 
 *******************
 Server Requirements
