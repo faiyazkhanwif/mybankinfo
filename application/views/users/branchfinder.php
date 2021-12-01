@@ -52,7 +52,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><button type="button" onclick="window.location='Users/login';" class="btn btn-dark">Staff Login</button></li>
+                        <li class="nav-item"><a class="nav-link btn btn-dark" href="javascript:window.history.go(-1);"><i class="fas fa-chevron-circle-left"></i> Go Back</a></li>
                     </ul>
                 </div>
             </div>
@@ -85,11 +85,12 @@
                                                 <?php print '<option value="' . $bank->bankID . '">' . $bank->bankname . '</option>'; ?>
                                             <?php endforeach; ?>
                                         </select>
-                                        <br>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="text-danger form-error"><?= form_error('bankID') ?></div>
                                     </div>
+                                    <br>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -111,11 +112,11 @@
                                                 <?php print '<option value="' . $area->areaID . '">' . $area->areaname . '</option>'; ?>
                                             <?php endforeach; ?>
                                         </select>
-                                        <br>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="text-danger form-error"><?= form_error('areaID') ?></div>
                                     </div>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -123,7 +124,7 @@
                 </div>
                 <br>
                 <br>
-                <div class="row gx-5 justify-content-center animate__animated animate__zoomIn">
+                <div class="row gx-5 justify-content-center animate__animated animate__zoomIn animate__delay-1s">
                     <div class="col-lg-8 col-xl-6">
                         <div class="form-group text-center">
                             <?= form_submit(['name' => 'submit', 'value' => 'Find', 'class' => 'btn btn-lg btn-dark btn my-btn rounded-pill']); ?>
@@ -139,6 +140,8 @@
     <footer class="bg-dark py-4 mt-auto">
         <div class="container px-5">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto">
+                </div>
                 <div class="col-auto">
                     <div class="small m-0 text-white">Copyright &copy; Banking Information 2021</div>
                 </div>

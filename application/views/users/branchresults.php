@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Hiring Confirmation</title>
+    <title>Banking Information</title>
     <script src="https://kit.fontawesome.com/714da8de62.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="<?= base_url('tool/img/favicon.png'); ?>" />
+    <link rel="icon" type="image/x-icon" href="<?= base_url('tool/img/favicon1.png'); ?>" />
     <!-- Bootstrap icons-->
     <link type="text/css" href="<?= base_url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css'); ?>" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link type="text/css" href="<?= base_url('tool/css/styles.css'); ?>" rel="stylesheet" />
-    
+
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
     <style>
@@ -43,21 +44,17 @@
     </style>
 </head>
 
+
 <body class="d-flex flex-column h-100">
-    <main class="flex-shrink-0">
+    <main class="flex-shrink-0 ">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light bg-gradient">
             <div class="container px-5">
-                <a class="navbar-brand" href="<?= base_url() ?>users/browsedevs"><i class="fas fa-laptop-code"></i> &nbsp;<span class="fw-bolder">HireDev</span></a>
+                <a class="navbar-brand" href="<?= base_url() ?>Home"><i class="fas fa-dollar-sign"></i> <span class="fw-bolder">Banking Information</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url() ?>users/browsedevs"><i class="fas fa-users"></i> Browse Devs &nbsp;&nbsp;</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url() ?>Users/about">About &nbsp;&nbsp;</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url() ?>User-home">Profile &nbsp;&nbsp;&nbsp;</a></li>
-                        <li class="nav-item"><a class="nav-link btn btn-info" href="<?= base_url() ?>User-home/hireddevs">Hired Devs</a></li>
-                        &nbsp;&nbsp;&nbsp;
-                        <li class="nav-item"><a class="nav-link btn btn-danger" href="<?= base_url() ?>Users/logout"><span><i class="fas fa-power-off"></i></span></a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-dark" href="javascript:window.history.go(-1);"><i class="fas fa-chevron-circle-left"></i> Go Back</a></li>
                     </ul>
                 </div>
             </div>
@@ -68,55 +65,65 @@
             print '<div class= "success-msg">';
             print '<div class = "container alert alert-success">' . $this->session->flashdata('login_success') . '</div>';
             //print '<div class="cross"><a href="" class="text-success"><i class="fas fa-times"></i></a></div>';
+            print '<br>';
             print '</div>';
         }
         ?>
-        <!-- Blog preview section-->
-        <section class="py-5">
+        <section class="py-4">
             <div class="container ">
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-8 col-xl-6">
-                        <div class="text-center">
-                            <h2 class="fw-bolder"></h2>
-                        </div>
-                    </div>
+                <div class="text-center animate__animated animate__bounceInLeft">
+                    <h3 class="fw-bolder"><i class="fas fa-university"></i> Branch Results</h3>
                 </div>
-                <div class="row gx-5 animate__animated animate__zoomIn">
-                    <div class="text-center">
-                        <h3 class='alert-success '>You have hired your preferred developer!</h3>
+                <?php if (!$branches) : ?>
+                    <div class="text-center animate__animated animate__zoomIn animate__delay-1s">
                         <br>
                         <br>
-                            <div class="animate__animated animate__tada animate__delay-1s" style="font-size: 24px;">
-                                <i class="far fa-thumbs-up fa-10x text-primary"></i>
-                            </div>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <div>
-                                <p class="fw-bolder">Go to "Hired Devs" to get contact details of your hired developer.</p>
+                        <br>
+                        <br>
+                        <h1><i class="fas fa-search-location fa-5x"></i></h1>
+                        <br>
+                        <br>
+                        <br>
+                        <h6 class="text-danger">Your selected bank does not have any branches in your selected area.</h6>
+                        <br>
+                        <br>
+                        <a class="btn btn-dark btn-lg px-4 me-sm-3" href="<?= base_url() ?>Users/finder">Search Again</a>
+                    </div>
+                <?php else : ?>
+                    <!--workinprogress  Use Jumbotron-->
+                    <table class="table table-hover table-responsive borderless">
+                        <?php foreach ($branches as $data) : ?>
+                            <tr>
+                                <?php print '<td>' . htmlentities($data->branchID) . '</td>'; ?>
+                                <?php print '<td>' . htmlentities($data->bankname) . '</td>'; ?>
+                                <?php print '<td>' . htmlentities($data->areaname) . '</td>'; ?>
+                                <?php print '<td>' . htmlentities($data->address) . '</td>'; ?>
                                 <br>
-                                <h4 class="text-success">Thank you!</h4>
-                            </div>
-                    </div>
-                    <br>
+                                <hr>
+                                <?php print  $data->map; ?>
 
-                </div>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+                <?php endif; ?>
             </div>
         </section>
     </main>
     <!-- Footer-->
-    <footer class="bg-primary py-4 mt-auto">
+    <footer class="bg-dark py-4 mt-auto">
         <div class="container px-5">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                 <div class="col-auto">
-                    <div class="small m-0 text-white">Copyright &copy; HireDev 2021</div>
                 </div>
                 <div class="col-auto">
-                    <a class="link-light small" href="<?= base_url() ?>Users/about">About</a>
-                    <span class="text-white mx-1">&middot;</span>
-                    <a class="link-light small" href="<?= base_url() ?>users/terms">Terms</a>
+                    <div class="small m-0 text-white">Copyright &copy; Banking Information 2021</div>
                 </div>
+                <!--
+                        <div class="col-auto">
+                            <a class="link-light small" href="<?= base_url() ?>Users/about">About</a>
+                            <span class="text-white mx-1">&middot;</span>
+                            <a class="link-light small" href="users/terms">Terms</a>
+                        </div>-->
             </div>
         </div>
     </footer>

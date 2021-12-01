@@ -48,17 +48,17 @@ class User_model extends CI_Model
 	}
 
 
-	public function hireddevs()
+	public function findbranch()
 	{
-		//$this->db->order_by('hireID', 'DESC');
-		//$this->db->where('userID', $this->session->userdata('id'));
-		//$query = $this->db->get('hireddevs');
-		//return $query->result();
+		$areaID	= $this->input->post('areaID');
+		$bankID	= $this->input->post('bankID');
 
-		$this->db->select('hires.*, devs.name, devs.contact, devs.email');
-		$this->db->from('hires');
-		$this->db->join('devs', 'hires.devID = devs.id');
-		$this->db->where('hires.userID', $this->session->userdata('id'));
+		$this->db->select('branches.*, areas.areaname, banks.bankname');
+		$this->db->from('branches');
+		$this->db->join('areas', 'branches.areaID = areas.areaID');
+		$this->db->join('banks', 'branches.bankID = banks.bankID');
+		$this->db->where('branches.bankID', $bankID);
+		$this->db->where('branches.areaID', $areaID);
 		$query = $this->db->get();
 		return $query->result();
 	}

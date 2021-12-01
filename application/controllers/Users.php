@@ -259,6 +259,23 @@ class Users extends CI_Controller
 		$this->load->view('users/branchfinder', $view);
 	}
 
+
+	public function findbranch()
+	{
+		$this->load->model('User_model');
+
+		$this->load->model('Admin_model');
+
+		$this->form_validation->set_rules('areaID', 'Area', 'trim|required');
+		$this->form_validation->set_rules('bankID', 'Bank', 'trim|required');
+		if ($this->form_validation->run() == FALSE) {
+			$this->branchfinder();
+		} else {
+			$view['branches'] = $this->User_model->findbranch();
+			$this->load->view('users/branchresults', $view);
+		}
+	}
+
 	public function branchsearch()
 	{
 		$this->load->model('Admin_model');
