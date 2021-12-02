@@ -41,6 +41,13 @@
             transform: scale(1.05);
             box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
         }
+
+        .jumbotron {
+            padding: 2rem 2rem;
+            margin-bottom: 2rem;
+            background-color: #f8f9fa;
+            border-radius: .4rem;
+        }
     </style>
 </head>
 
@@ -54,25 +61,16 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link btn btn-dark" href="javascript:window.history.go(-1);"><i class="fas fa-chevron-circle-left"></i> Go Back</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-dark" href="<?= base_url() ?>Users/branchfinder"><i class="fas fa-chevron-circle-left"></i> Go Back</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <?php
-        if ($this->session->flashdata('login_success')) {
-            print '<br>';
-            print '<div class= "success-msg">';
-            print '<div class = "container alert alert-success">' . $this->session->flashdata('login_success') . '</div>';
-            //print '<div class="cross"><a href="" class="text-success"><i class="fas fa-times"></i></a></div>';
-            print '<br>';
-            print '</div>';
-        }
-        ?>
+
         <section class="py-4">
             <div class="container ">
                 <div class="text-center animate__animated animate__bounceInLeft">
-                    <h3 class="fw-bolder"><i class="fas fa-university"></i> Branch Results</h3>
+                    <h3 class="fw-bolder"><i class="fas fa-map-marked-alt"></i> Branch Results</h3>
                 </div>
                 <?php if (!$branches) : ?>
                     <div class="text-center animate__animated animate__zoomIn animate__delay-1s">
@@ -87,25 +85,48 @@
                         <h6 class="text-danger">Your selected bank does not have any branches in your selected area.</h6>
                         <br>
                         <br>
-                        <a class="btn btn-dark btn-lg px-4 me-sm-3" href="<?= base_url() ?>Users/finder">Search Again</a>
                     </div>
                 <?php else : ?>
                     <!--workinprogress  Use Jumbotron-->
-                    <table class="table table-hover table-responsive borderless">
-                        <?php foreach ($branches as $data) : ?>
-                            <tr>
-                                <?php print '<td>' . htmlentities($data->branchID) . '</td>'; ?>
-                                <?php print '<td>' . htmlentities($data->bankname) . '</td>'; ?>
-                                <?php print '<td>' . htmlentities($data->areaname) . '</td>'; ?>
-                                <?php print '<td>' . htmlentities($data->address) . '</td>'; ?>
-                                <br>
-                                <hr>
-                                <?php print  $data->map; ?>
+                    <br>
+                    <?php foreach ($branches as $data) : ?>
 
-                            </tr>
-                        <?php endforeach; ?>
-                    </table>
+                        <div class="jumbotron jumbotron-fluid shadow border-0 animate__animated animate__fadeIn animate__delay-1s">
+                            <div class="row">
+                                <div class="col">
+                                    <h3><i class="fas fa-university"></i> <?php print htmlentities($data->bankname) ?></h3>
+                                </div>
+                                <div class="col">
+                                    <p class="lead" style="text-align: right;"><small><i class="fas fa-map-marker-alt"></i> <b><?php print htmlentities($data->areaname); ?></b></small></p>
+                                </div>
+                            </div>
+                            <hr class="my-2">
+                            <br class="my-2">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h6><i class="fas fa-map-pin"></i>&nbsp;<b>Address</b></h6>
+                                    <p>&nbsp;&nbsp;&nbsp;<?php print htmlentities($data->address); ?></p>
+                                    <br>
+                                    <h6><i class="fas fa-mobile-alt"></i>&nbsp;<b>Contact Information</b></h6>
+                                    <p>&nbsp;&nbsp;&nbsp;<?php print htmlentities($data->contact); ?></p>
+                                    <br>
+                                    <h6><i class="fas fa-info-circle"></i>&nbsp;<b>Additonal Information</b></h6>
+                                    <p>&nbsp;&nbsp;&nbsp;<?php print htmlentities($data->addinfo); ?></p>
+                                </div>
+                                <div class="col-6">
+                                    <div class="shadow-sm">
+                                        <?php print  $data->map; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    <?php endforeach; ?>
                 <?php endif; ?>
+
+                <div class="text-center animate__animated animate__zoomIn animate__delay-2s">
+                    <a class="btn btn-dark btn-lg px-4 me-sm-3" href="<?= base_url() ?>Users/finder">Search Again</a>
+                </div>
             </div>
         </section>
     </main>
