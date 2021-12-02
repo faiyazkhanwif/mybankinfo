@@ -52,7 +52,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link btn btn-dark" href="<?= base_url() ?>Home"><i class="fas fa-chevron-circle-left"></i> Go Back</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-dark" href="<?= base_url() ?>Users/finder"><i class="fas fa-chevron-circle-left"></i> Go Back</a></li>
                     </ul>
                 </div>
             </div>
@@ -67,78 +67,72 @@
         }
         ?>
         <!-- Blog preview section-->
+        <br>
         <section class="py-5">
             <div class="container ">
+                <?= form_open('Users/findatm') ?>
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6">
-                        <div class="text-center">
-                            <h2 class="fw-bolder animate__animated animate__bounceInLeft">Select one from below</h2>
+                        <div class="text-center animate__animated animate__bounceInLeft">
+                            <h3 class="fw-bolder"><i class="fas fa-university"></i> Select a bank</h3>
+                            <div class="row gx-5">
+                                <div class="form-group">
+                                    <label for="bankID" class="fw-bolder"><b></b></label>
+                                    <div class="col-lg-12">
+                                        <select name="bankID" class="form-control">
+                                            <option value="">Choose a bank</option>
+                                            <?php foreach ($banks as $bank) : ?>
+                                                <?php print '<option value="' . $bank->bankID . '">' . $bank->bankname . '</option>'; ?>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="text-danger form-error"><?= form_error('bankID') ?></div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <br>
-                <div class="row gx-5 animate__animated animate__zoomIn animate__delay-1s">
-                    <div class="col-lg-6 mb-5">
-                        <div class="card h-100 shadow border-0">
-                            <div class="card-body p-4">
-                                <img class="rounded mx-auto d-block" src="<?= base_url('tool/img/favicon1.png'); ?>" alt="..." />
-                                <br>
-                                <br>
-                                <div class="badge bg-dark bg-gradient rounded-pill mb-2 mx-auto d-block" style="width: 200px; height: 35px;">
-                                    <h5>Branch Location</h5>
-                                </div>
-                                <br>
-                                <br>
-                                <!--<a class="text-decoration-none link-dark stretched-link" href="< ?= base_url() ?>Users/devdetails/< ?= $dev->id ?>">-->
-                                <a class="text-decoration-none link-dark stretched-link" href="<?= base_url() ?>Users/branchfinder/"></a>
-                            </div>
-                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                                <div class="d-flex align-items-end justify-content-between">
-                                    <div class="d-flex">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="small">
-                                                    <div class="text-muted"><small><i class="fas fa-info-circle"></i>&nbsp;Click here to find your preferred branch locations of banks</small></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                <br>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6">
+                        <div class="text-center animate__animated animate__bounceInRight">
+                            <h3 class="fw-bolder"><i class="fas fa-map-marked-alt"></i> Select an Area</h3>
+                            <div class="row gx-5">
+                                <div class="form-group">
+                                    <label for="areaID" class="fw-bolder"><b></b></label>
+                                    <div class="col-lg-12">
+                                        <select name="areaID" class="form-control">
+                                            <option value="">Choose an area</option>
+                                            <?php foreach ($areas as $area) : ?>
+                                                <?php print '<option value="' . $area->areaID . '">' . $area->areaname . '</option>'; ?>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
+                                    <div class="col-sm-4">
+                                        <div class="text-danger form-error"><?= form_error('areaID') ?></div>
+                                    </div>
+                                    <br>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-6 mb-5">
-                        <div class="card h-100 shadow border-0">
-                            <div class="card-body p-4">
-                                <img class="rounded mx-auto d-block" src="<?= base_url('tool/img/favicon2.png'); ?>" alt="..." />
-                                <br>
-                                <br>
-                                <div class="badge bg-dark bg-gradient rounded-pill mb-2 mx-auto d-block" style="width: 200px; height: 35px;">
-                                    <h5>ATM Location</h5>
-                                </div>
-                                <br>
-                                <br>
-                                <!--<a class="text-decoration-none link-dark stretched-link" href="< ?= base_url() ?>Users/devdetails/< ?= $dev->id ?>">-->
-                                <a class="text-decoration-none link-dark stretched-link" href="<?= base_url() ?>Users/atmfinder/"></a>
-                            </div>
-                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                                <div class="d-flex align-items-end justify-content-between">
-                                    <div class="d-flex">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="small">
-                                                    <div class="text-muted"><small><i class="fas fa-info-circle"></i>&nbsp;Click here to find your preferred ATM locations of banks</small></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+                <br>
+                <br>
+                <div class="row gx-5 justify-content-center animate__animated animate__zoomIn animate__delay-1s">
+                    <div class="col-lg-8 col-xl-6">
+                        <div class="form-group text-center">
+                            <?= form_submit(['name' => 'submit', 'value' => 'Find', 'class' => 'btn btn-lg btn-dark btn my-btn rounded-pill']); ?>
+                        </div>
+                    </div>
+                </div>
+
+                <?= form_close() ?>
             </div>
         </section>
     </main>

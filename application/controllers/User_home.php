@@ -27,24 +27,6 @@ class User_home extends CI_Controller
 	}
 
 
-	public function hireddevs()
-	{
-
-		$this->load->model('User_model');
-		$view['mydevs'] = $this->User_model->hireddevs();
-
-		$this->load->view('users/hireddevs', $view);
-	}
-
-	public function markcomplete($id)
-	{
-		$this->load->model('User_model');
-		$this->User_model->markcomplete($id);
-	
-		$this->session->set_flashdata('success', '<i class= "fas fa-trash text-danger"></i> You have mark the job as "Complete". The developer has been removed from the hiring list.');
-		redirect('user-home/hireddevs');
-	}
-
 	public function alpha_dash_space($fullname)
 	{
 		if (!preg_match('/^[a-zA-Z\s]+$/', $fullname)) {

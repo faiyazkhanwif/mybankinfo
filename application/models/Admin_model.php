@@ -15,10 +15,6 @@ class Admin_model extends CI_Model
 		$data = array(
 
 			'areaname'	=> $this->input->post('area')
-			//'contact'	=> $this->input->post('contact'),
-			//'email'	=> $this->input->post('email'),
-			//'description' => $this->input->post('description'),
-			//'specialty' => $this->input->post('specialty')
 
 		);
 
@@ -32,10 +28,6 @@ class Admin_model extends CI_Model
 		$data = array(
 
 			'bankname'	=> $this->input->post('bank')
-			//'contact'	=> $this->input->post('contact'),
-			//'email'	=> $this->input->post('email'),
-			//'description' => $this->input->post('description'),
-			//'specialty' => $this->input->post('specialty')
 
 		);
 

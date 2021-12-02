@@ -25,29 +25,6 @@ class User_model extends CI_Model
 		return $result->result_array();
 	}
 
-
-	public function get_devs($limit, $offset)
-	{
-		$this->db->select('*');
-		$this->db->from('devs');
-
-		$this->db->order_by('devs.id', 'DESC');
-		$this->db->limit($limit, $offset);
-		$query = $this->db->get();
-		return $query->result();
-	}
-	#...For pagination
-	public function num_rows_devs()
-	{
-		$this->db->select('*');
-		$this->db->from('devs');
-
-		$this->db->order_by('devs.id', 'DESC');
-		$query = $this->db->get();
-		return $query->num_rows();
-	}
-
-
 	public function findbranch()
 	{
 		$areaID	= $this->input->post('areaID');
@@ -63,7 +40,20 @@ class User_model extends CI_Model
 		return $query->result();
 	}
 
+	public function findatm()
+	{
+		$areaID	= $this->input->post('areaID');
+		$bankID	= $this->input->post('bankID');
 
+		$this->db->select('atms.*, areas.areaname, banks.bankname');
+		$this->db->from('atms');
+		$this->db->join('areas', 'atms.areaID = areas.areaID');
+		$this->db->join('banks', 'atms.bankID = banks.bankID');
+		$this->db->where('atms.bankID', $bankID);
+		$this->db->where('atms.areaID', $areaID);
+		$query = $this->db->get();
+		return $query->result();
+	}
 
 	public function get_user_details($id)
 	{

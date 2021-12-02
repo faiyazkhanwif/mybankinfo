@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2021 at 04:03 PM
+-- Generation Time: Dec 02, 2021 at 09:53 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -58,6 +58,16 @@ CREATE TABLE `atms` (
   `addinfo` varchar(600) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `atms`
+--
+
+INSERT INTO `atms` (`atmID`, `areaID`, `bankID`, `address`, `map`, `contact`, `addinfo`) VALUES
+(3, 6, 1, 'B03-A-15-01, Menarwa 3A, No.3, Jalan Bangsar, Kampung Haji Abdullah Hukum', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63739.495339217116!2d101.70859519999999!3d3.1686656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2sPetronas%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1638475872059!5m2!1sen!2smy\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '+11121721029', 'bfbfbfbfb'),
+(4, 6, 1, 'Jalan pantai murni 1, Pantai Hillpark Phase 2, Pantai Hillpark', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63739.495339217116!2d101.70859519999999!3d3.1686656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2sPetronas%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1638475872059!5m2!1sen!2smy\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '124141414244', 'ccc'),
+(5, 1, 1, 'Unit: B5-21-4, Pantai Hillpark Phase 2', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63739.495339217116!2d101.70859519999999!3d3.1686656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2sPetronas%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1638475872059!5m2!1sen!2smy\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '+11121721029', ''),
+(6, 7, 10, 'B03-A-15-01, Menara 3A, No.3, Jalan Bangsar, Kampung Haji Abdullah Hukum', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63739.495339217116!2d101.70859519999999!3d3.1686656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0x9e3afdd17c8a9056!2sPetronas%20Twin%20Towers!5e0!3m2!1sen!2smy!4v1638475872059!5m2!1sen!2smy\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '93861937420', '');
+
 -- --------------------------------------------------------
 
 --
@@ -76,7 +86,7 @@ CREATE TABLE `banks` (
 INSERT INTO `banks` (`bankID`, `bankname`) VALUES
 (1, 'Bangladesh Bank'),
 (2, 'Sonali Bank'),
-(10, 'MTB');
+(10, 'MTBdada');
 
 -- --------------------------------------------------------
 
@@ -100,7 +110,9 @@ CREATE TABLE `branches` (
 
 INSERT INTO `branches` (`branchID`, `areaID`, `bankID`, `address`, `map`, `contact`, `addinfo`) VALUES
 (4, 7, 1, 'Bangsar south,49/b', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.9092944044605!2d101.67170531472752!3d3.1186930542088973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc490d84197605%3A0x4a1c92fbd649fc47!2sEdwards%20Lifesciences%20(M)%20Sdn%20Bhd!5e0!3m2!1sen!2smy!4v1638106348273!5m2!1sen!2smy\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '93861937420', ''),
-(5, 11, 10, 'No. 66, 68G, Jalan Telawi, Bangsar, 59100 Kuala Lumpur, Wilayah Persekutuan', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.8659680441137!2d101.66836361744383!3d3.1301085000000057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49985082e3db%3A0xd178736b253dac5d!2sHSBC%20Bank%20ATM!5e0!3m2!1sen!2smy!4v1638115461118!5m2!1sen!2smy\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '93861937420', 'vdbsds');
+(5, 11, 10, 'No. 66, 68G, Jalan Telawi, Bangsar, 59100 Kuala Lumpur, Wilayah Persekutuan', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.8659680441137!2d101.66836361744383!3d3.1301085000000057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49985082e3db%3A0xd178736b253dac5d!2sHSBC%20Bank%20ATM!5e0!3m2!1sen!2smy!4v1638115461118!5m2!1sen!2smy\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '93861937420', 'vdbsds'),
+(6, 11, 1, '3, Jalan Pantai Murni 1, Pantai Hillpark, 59200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.959271802427!2d101.66158931472758!3d3.1054731542856904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4a2cfbe1c027%3A0x78f696d788702085!2sPantai%20Hillpark%20Phase%202-%20Block%201!5e0!3m2!1sen!2smy!4v1638458068931!5m2!1sen!2smy\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '14531513515', 'Every Day 10am–10pm'),
+(7, 7, 1, '5, Jalan Kerinchi, Bangsar South, 59200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.9425785610533!2d101.66184381472755!3d3.1098950542600234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4bde3552a8a5%3A0x642b37192bcc7ae9!2sInvito%20Hotel%20%26%20Residence!5e0!3m2!1sen!2smy!4v1638461132768!5m2!1sen!2smy\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '93861937420', 'nnnnnnnnnnnnnnnnnn');
 
 -- --------------------------------------------------------
 
@@ -178,7 +190,7 @@ ALTER TABLE `areas`
 -- AUTO_INCREMENT for table `atms`
 --
 ALTER TABLE `atms`
-  MODIFY `atmID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `atmID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `banks`
@@ -190,7 +202,7 @@ ALTER TABLE `banks`
 -- AUTO_INCREMENT for table `branches`
 --
 ALTER TABLE `branches`
-  MODIFY `branchID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `branchID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
