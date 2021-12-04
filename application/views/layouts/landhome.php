@@ -9,7 +9,7 @@
     <title>Banking Information</title>
     <script src="https://kit.fontawesome.com/714da8de62.js" crossorigin="anonymous"></script>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="tool/img/favicon1.png" />
+    <link rel="icon" type="image/x-icon" href="tool/img/bdbank.png" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -125,7 +125,7 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-white bg-gradient">
                 <div class="container px-5">
-                    <a class="navbar-brand" href="<?= base_url() ?>Home"><i class="fas fa-dollar-sign"></i> <span class="fw-bolder">Banking Information</span></a>
+                    <a class="navbar-brand" href="<?= base_url() ?>Home"><img src="tool/img/bdbank.png" width="40" alt=""> <span class="fw-bolder">Banking Information</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -172,10 +172,7 @@
                         <div class="col-lg-4 mb-5 mb-lg-0">
                             <h2 class="fw-bolder mb-0">All information in one place</h2>
                             <br>
-                            <br>
-                            <br>
-
-                            <div><i class="fas fa-info-circle fa-8x"></i></div>
+                            <div><img src="tool/img/bdbank.png" width="150" alt=""></div>
                         </div>
                         <div class="col-lg-8">
                             <div class="row gx-5 row-cols-1 row-cols-md-2">

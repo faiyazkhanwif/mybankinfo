@@ -13,7 +13,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <title>Admin</title>
     <script src="https://kit.fontawesome.com/714da8de62.js" crossorigin="anonymous"></script>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="<?= base_url('tool/img/favicon1.png'); ?>" />
+    <link rel="icon" type="image/x-icon" href="<?= base_url('tool/img/bdbank.png'); ?>" />
     <!-- Bootstrap icons-->
     <link type="text/css" href="<?= base_url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css'); ?>" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->

@@ -139,7 +139,7 @@ class Admin extends CI_Controller
 		$this->form_validation->set_rules('bankID', 'Bank', 'trim|required');
 		$this->form_validation->set_rules('address', 'Address', 'trim|strip_tags[address]|required');
 		$this->form_validation->set_rules('map', 'Map', 'required');
-		$this->form_validation->set_rules('contact', 'Contact', 'trim|min_length[10]|max_length[15]|numeric');
+		$this->form_validation->set_rules('contact', 'Contact', 'trim|min_length[5]|max_length[15]|numeric');
 		//$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[devs.email]');
 		$this->form_validation->set_rules('addinfo', 'Additional Information', 'trim|strip_tags[addinfo]');
 
@@ -172,7 +172,7 @@ class Admin extends CI_Controller
 		$this->form_validation->set_rules('bankID', 'Bank', 'trim|required');
 		$this->form_validation->set_rules('address', 'Address', 'trim|strip_tags[address]|required');
 		$this->form_validation->set_rules('map', 'Map', 'required');
-		$this->form_validation->set_rules('contact', 'Contact', 'trim|min_length[10]|max_length[15]|numeric');
+		$this->form_validation->set_rules('contact', 'Contact', 'trim|min_length[5]|max_length[15]|numeric');
 		//$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[devs.email]');
 		$this->form_validation->set_rules('addinfo', 'Additional Information', 'trim|strip_tags[addinfo]');
 
@@ -296,7 +296,7 @@ class Admin extends CI_Controller
 
 		$this->form_validation->set_rules('address', 'Address', 'trim|strip_tags[address]|required');
 		$this->form_validation->set_rules('map', 'Map', 'required');
-		$this->form_validation->set_rules('contact', 'Contact', 'trim|min_length[10]|max_length[15]|numeric');
+		$this->form_validation->set_rules('contact', 'Contact', 'trim|min_length[5]|max_length[15]|numeric');
 		$this->form_validation->set_rules('addinfo', 'Additional Information', 'trim|strip_tags[addinfo]');
 
 		if ($this->form_validation->run() == FALSE) {
@@ -328,7 +328,7 @@ class Admin extends CI_Controller
 
 		$this->form_validation->set_rules('address', 'Address', 'trim|strip_tags[address]|required');
 		$this->form_validation->set_rules('map', 'Map', 'required');
-		$this->form_validation->set_rules('contact', 'Contact', 'trim|min_length[10]|max_length[15]|numeric');
+		$this->form_validation->set_rules('contact', 'Contact', 'trim|min_length[5]|max_length[15]|numeric');
 		$this->form_validation->set_rules('addinfo', 'Additional Information', 'trim|strip_tags[addinfo]');
 
 		if ($this->form_validation->run() == FALSE) {
