@@ -112,7 +112,6 @@ class Admin_model extends CI_Model
 
 	public function get_banks()
 	{
-		/*=== SQL join ===*/
 		$this->db->select('*');
 
 		$this->db->from('banks');

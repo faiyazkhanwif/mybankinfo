@@ -289,7 +289,7 @@ class Admin extends CI_Controller
 
 	public function edit_branch($id)
 	{
-		$this->load->model('User_model');
+		//$this->load->model('User_model');
 
 		$this->load->model('Admin_model');
 		$view['branch_details'] = $this->Admin_model->get_branch_details($id);

@@ -29,7 +29,7 @@
 
         <div class="form-group">
             <label for="address" class="fw-bolder"><b>Address</b></label>
-            <?= form_textarea(['name' => 'address', 'placeholder' => 'Address of the branch', 'value' => set_value('address', $atm_details->address), 'class' => 'form-control']) ?>
+            <?= form_textarea(['name' => 'address', 'placeholder' => 'Address of the ATM', 'value' => set_value('address', $atm_details->address), 'class' => 'form-control']) ?>
 
             <div class="text-danger form-error"><?= form_error('address') ?></div>
         </div>
